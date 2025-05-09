@@ -1,10 +1,12 @@
 "use client"
 import { updateTaskById, getTodoById } from '@/Geteways/todo'
 import { ITodo } from '@/Interfaces/todo'
+import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { TiArrowBackOutline } from 'react-icons/ti'
 
- const UpdateTask = () => {
+const UpdateTask = () => {
     const router = useRouter()
     const { id } = useParams()
     const [todo, setTodo] = useState<ITodo | null>(null)
@@ -31,11 +33,16 @@ import { useEffect, useState } from 'react'
         }
     }
 
-        return (
-            <>
-                <main className="max-w-md mx-auto mt-10">
-                    <h1 className="text-2xl font-bold mb-4 text-center">Ma Todo List</h1>
-                    <form className="flex gap-2 mb-4" onSubmit={handleUpdateTask}>
+    return (
+        <>
+
+            <div className="min-h-screen justify-center items-center flex bg-gray-300">
+                <main className=" md:w-xl md:h-76 grid mx-auto  bg-amber-50 p-5 rounded">
+                    <h1 className="text-2xl font-bold mb-4 text-center">MODIFIER LA TACHE <br /> {id}</h1>
+
+
+                    <form onSubmit={handleUpdateTask} className="flex gap-2 mb-4">
+
                         <input
                             type="text"
                             value={title}
@@ -47,10 +54,18 @@ import { useEffect, useState } from 'react'
                             Modifier
                         </button>
 
-                    </form>
-                </main>
-            </>
-        )
-    }
 
-    export default UpdateTask
+                    </form>
+                    <div className="flex gap-3 justify-end italic font-serif">
+                        <span>Retourner à la liste des taches</span>
+                        <Link href="/" > <TiArrowBackOutline className="size-7 text-blue-500" />
+                        </Link>
+                    </div>
+                </main>
+            </div>
+
+        </>
+    )
+}
+
+export default UpdateTask

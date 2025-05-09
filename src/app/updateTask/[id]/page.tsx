@@ -38,7 +38,7 @@ const UpdateTask = () => {
 
             <div className="min-h-screen justify-center items-center flex bg-gray-300">
                 <main className=" md:w-xl md:h-76 grid mx-auto  bg-amber-50 p-5 rounded">
-                    <h1 className="text-2xl font-bold mb-4 text-center">MODIFIER LA TACHE <br /> <i className='font-sans'>{id}</i></h1>
+                    <h1 className="text-2xl font-bold mb-4 text-center">MODIFIER LA TACHE <br /> </h1>
 
 
                     <form onSubmit={handleUpdateTask} className="flex gap-2 mb-4">

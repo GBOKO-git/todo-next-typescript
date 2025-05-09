@@ -24,7 +24,7 @@ const DeleteTask = () => {
     try {
       await deleteTodo(todoId);
       alert("Tâche supprimée !");
-      router.push("/"); // Redirection après suppression
+      router.push("/task"); // Redirection après suppression
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
     }

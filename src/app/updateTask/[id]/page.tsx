@@ -38,7 +38,7 @@ const UpdateTask = () => {
 
             <div className="min-h-screen justify-center items-center flex bg-gray-300">
                 <main className=" md:w-xl md:h-76 grid mx-auto  bg-amber-50 p-5 rounded">
-                    <h1 className="text-2xl font-bold mb-4 text-center">MODIFIER LA TACHE <br /> {id}</h1>
+                    <h1 className="text-2xl font-bold mb-4 text-center">MODIFIER LA TACHE <br /> <i className='font-sans'>{id}</i></h1>
 
 
                     <form onSubmit={handleUpdateTask} className="flex gap-2 mb-4">
@@ -48,9 +48,9 @@ const UpdateTask = () => {
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
                             placeholder="Nouvelle tâche"
-                            className="border p-2 flex-grow"
+                            className="border p-2 flex-grow h-12"
                         />
-                        <button type="submit" className="bg-blue-500 text-white px-4 py-2">
+                        <button type="submit" className="bg-blue-500 text-white px-4 py-2 h-12 rounded">
                             Modifier
                         </button>
 

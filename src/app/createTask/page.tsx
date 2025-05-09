@@ -33,7 +33,7 @@ const CreateTask = () => {
             placeholder="Nouvelle tâche"
             className="border p-2 flex-grow h-12"
           />
-          <button type="submit" className="bg-blue-500 text-white px-4 py-2 h-12">
+          <button type="submit" className="bg-blue-500 text-white px-4 py-2 h-12 rounded">
             Ajouter
           </button>
 

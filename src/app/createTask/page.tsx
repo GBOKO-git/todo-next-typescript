@@ -14,7 +14,7 @@ const CreateTask = () => {
     e.preventDefault();
     if (title.trim() !== "") {
       addTodo(title);
-      router.push("/")
+      router.push("/task")
     }
   }
   return (
@@ -24,7 +24,7 @@ const CreateTask = () => {
         <h1 className="text-2xl font-bold mb-4 text-center">AJOUTER UNE TACHE</h1>
 
 
-        <form onSubmit={handleSubmit} className="flex gap-2 mb-4">
+        <form onSubmit={handleSubmit} className="flex gap-2 mb-4 ">
 
           <input
             type="text"

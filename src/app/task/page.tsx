@@ -39,12 +39,12 @@ const Task = () => {
                 </Link>
             </div>
 
-            <div className="max-w-md mx-auto bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
+            <div className="md:min-w-4xl mx-auto  bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
 
-                <div className="px-4 py-2">
-                    <h1 className="text-gray-800 font-bold text-2xl uppercase">To-Do List </h1>
+                <div className="px-4 py-2 ">
+                    <h1 className="text-gray-800 font-bold text-2xl uppercase ">To-Do List </h1>
                 </div>
-                <form className="w-full max-w-sm mx-auto px-4 py-2">
+                <form className="w-full md:min-w-3xl mx-auto px-4 py-2 ">
                     <div className="flex items-center border-b-2 border-teal-500 py-2">
                         <input
                             className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
@@ -57,9 +57,9 @@ const Task = () => {
                         </Link>
                     </div>
                 </form>
-                <ul className="divide-y divide-gray-200 px-4">
+                <ul className="divide-y divide-gray-200 px-4 border rounded  grid gap-2 p-5">
                     {todos.map((todo) => (
-                        <li key={todo.id} className="py-4">
+                        <li key={todo.id} className="py-4 border gap-1 p-3 rounded">
                             <div className="flex items-center">
                                 <input checked={todo.completed} id={`todo-${todo.id}`} name={`todo-${todo.id}`} type="checkbox" onChange={() => handleToggleTodo(todo.id)}
                                     className="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded" />

@@ -58,7 +58,7 @@ const UpdateTask = () => {
                     </form>
                     <div className="flex gap-3 justify-end italic font-serif">
                         <span>Retourner à la liste des taches</span>
-                        <Link href="/" > <TiArrowBackOutline className="size-7 text-blue-500" />
+                        <Link href="/task" > <TiArrowBackOutline className="size-7 text-blue-500" />
                         </Link>
                     </div>
                 </main>

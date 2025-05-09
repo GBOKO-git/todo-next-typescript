@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { ITodo } from "@/Interfaces/todo";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { CiEdit } from "react-icons/ci";
+import { TiArrowBackOutline } from "react-icons/ti";
 
 
 
@@ -27,9 +28,21 @@ const Task = () => {
 
     return (
         <>
+        <div className="grid  pt-10 items-center justify-items-center min-h-screen bg-gray-600">
+
+       
+            <div >
+                
+                <Link href="/" className="flex gap-3 justify-end italic font-serif"> 
+                <span>HOME</span>
+                <TiArrowBackOutline className="size-7 text-blue-500" />
+                </Link>
+            </div>
+
             <div className="max-w-md mx-auto bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
+
                 <div className="px-4 py-2">
-                    <h1 className="text-gray-800 font-bold text-2xl uppercase">To-Do List</h1>
+                    <h1 className="text-gray-800 font-bold text-2xl uppercase">To-Do List </h1>
                 </div>
                 <form className="w-full max-w-sm mx-auto px-4 py-2">
                     <div className="flex items-center border-b-2 border-teal-500 py-2">
@@ -67,6 +80,7 @@ const Task = () => {
                     }
                 </ul>
             </div>
+             </div>
         </>
     )
 }

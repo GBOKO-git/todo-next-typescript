@@ -33,7 +33,7 @@ const Task = () => {
        
             <div >
                 
-                <Link href="/" className="flex gap-3 justify-end italic font-serif"> 
+                <Link href="/" className="flex gap-3 justify-end italic font-serif text-2xl text-white"> 
                 <span>HOME</span>
                 <TiArrowBackOutline className="size-7 text-blue-500" />
                 </Link>
@@ -48,23 +48,23 @@ const Task = () => {
                     <div className="flex items-center border-b-2 border-teal-500 py-2">
                         <input
                             className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                            type="text" placeholder="Add a task" />
+                            type="text" placeholder="Ajouter une tache" />
                         <Link
                             href="/createTask"
                             className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
                             type="button">
-                            Add
+                            Ajouter
                         </Link>
                     </div>
                 </form>
-                <ul className="divide-y divide-gray-200 px-4 border rounded  grid gap-2 p-5">
+                <ul className="divide-y divide-gray-200 px-4    grid gap-2 p-5">
                     {todos.map((todo) => (
                         <li key={todo.id} className="py-4 border gap-1 p-3 rounded">
                             <div className="flex items-center">
                                 <input checked={todo.completed} id={`todo-${todo.id}`} name={`todo-${todo.id}`} type="checkbox" onChange={() => handleToggleTodo(todo.id)}
                                     className="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded" />
                                 <label htmlFor="todo1" className="ml-3 flex justify-between text-gray-900  w-full">
-                                    <div className={todo.completed ? "text-gray-400 line-through" : "text-lg font-medium mx-4"}>{todo.title}</div>
+                                    <div className={todo.completed ? "text-gray-400 line-through" : "text-lg font-medium mx-7 "}>{todo.title}</div>
                                     <div className="flex gap-2">
                                         <Link href={`/updateTask/${todo.id}`}  >
                                             <button className="text-sm font-light text-violet-800 border-1 cursor-pointer hover:text-white hover:bg-violet-950 rounded px-2"><CiEdit className="size-7" /></button>

@@ -78,14 +78,14 @@ const DeleteTask = () => {
               onClick={() => router.back()}
               className="bg-gray-200 py-2 rounded-lg"
             >
-              Cancel
+              Annuler
             </button>
             <button
               type="button"
               onClick={() => handleDeleteTodo(Number(id))}
               className="bg-red-600 text-white py-2 rounded-lg hover:bg-red-500"
             >
-              Confirm
+              Supprimer
             </button>
           </div>
         </div>

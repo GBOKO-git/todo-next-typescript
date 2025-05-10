@@ -76,7 +76,7 @@ const DeleteTask = () => {
             <button
               type="button"
               onClick={() => handleDeleteTodo(Number(id))}
-              className="bg-red-600 text-white py-2 rounded-lg hover:bg-red-500"
+              className="bg-red-900 text-white py-2 rounded-lg hover:bg-red-700"
             >
               Supprimer
             </button>

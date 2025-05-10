@@ -29,7 +29,7 @@ const UpdateTask = () => {
         if (todo) {
             updateTaskById(todo.id, title)
             alert(`Lache ${todo?.title} a été modifiée avec success`)
-            router.push('/')
+            router.push('/task')
         }
     }
 

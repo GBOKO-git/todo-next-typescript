@@ -23,7 +23,6 @@ const DeleteTask = () => {
   const handleDeleteTodo = async (todoId: number) => {
     try {
       await deleteTodo(todoId);
-      alert("Tâche supprimée !");
       router.push("/task"); // Redirection après suppression
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
@@ -33,7 +32,7 @@ const DeleteTask = () => {
   if (!todo) return null;
 
   return (
-    <div className="fixed inset-0 z-40 min-h-full overflow-y-auto overflow-x-hidden transition flex items-center">
+    <div className="fixed inset-0 z-40 min-h-full overflow-y-auto overflow-x-hidden transition flex items-center dark:bg-white">
       <div
         aria-hidden="true"
         className="fixed inset-0 w-full h-full bg-black/50 cursor-pointer"
@@ -64,9 +63,9 @@ const DeleteTask = () => {
           </button>
 
           <div className="space-y-2 p-2 text-center dark:text-white">
-            <h2 className="text-xl font-bold">{todo.title}</h2>
-            <p className="text-gray-500">
-              Êtes-vous sûr de vouloir supprimer cette tâche ?
+            <h2 className="text-xl font-semibold text-violet-900">  Êtes-vous sûr de vouloir supprimer cette tâche ?</h2>
+            <p className="text-gray-900 text-xl">
+             {todo.title}
             </p>
           </div>
 
@@ -75,19 +74,18 @@ const DeleteTask = () => {
           <div className="px-6 py-2 grid gap-2 grid-cols-2">
             <button
               type="button"
+              onClick={() => router.back()}
+              className="bg-gray-200 py-2 rounded-lg dark:text-black"
+            >
+              Annuler
+            </button>
+            <button
+              type="button"
               onClick={() => handleDeleteTodo(Number(id))}
               className="bg-red-900 text-white py-2 rounded-lg hover:bg-red-700"
             >
               Supprimer
             </button>
-            <button
-              type="button"
-              onClick={() => router.back()}
-              className="bg-gray-200 py-2 rounded-lg"
-            >
-              Annuler
-            </button>
-            
           </div>
         </div>
       </div>

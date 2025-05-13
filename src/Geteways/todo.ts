@@ -36,9 +36,9 @@ export function addTodo(title: string): ITodo {
 }
 
 // update task by id
-export const updateTaskById = (id: number, newTitle: string):ITodo | null => {
+export const updateTaskById = (id: number, newTitle: string, completed:boolean):ITodo | null => {
   const todos = getStoredTodos()
- const updatedTodos = todos.map((todo) => todo.id === id ? {...todo, title: newTitle} : todo)
+ const updatedTodos = todos.map((todo) => todo.id === id ? {...todo, title: newTitle, completed} : todo)
  const updatedTodo = updatedTodos.find((todo) => todo.id === id) || null
  saveTodos(updatedTodos)
  return updatedTodo

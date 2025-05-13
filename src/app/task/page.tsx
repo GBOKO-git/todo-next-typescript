@@ -16,71 +16,91 @@ const Task = () => {
     }, []);
 
 
-    const handleToggleTodo = (id: number) => {
-        toggleTodo(id);
-        setTodos((prevTodos) =>
-            prevTodos.map((todo) =>
-                todo.id === id ? { ...todo, completed: !todo.completed } : todo
-            )
-        );
-    };
+    // const handleToggleTodo = (id: number) => {
+    //     toggleTodo(id);
+    //     setTodos((prevTodos) =>
+    //         prevTodos.map((todo) =>
+    //             todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    //         )
+    //     );
+    // };
 
 
     return (
         <>
-        <div className="grid  pt-10 items-center justify-items-center min-h-screen bg-gray-600">
+            <div className="grid  pt-10 items-center justify-items-center min-h-screen bg-gray-600">
 
-       
-            <div >
-                
-                <Link href="/" className="flex gap-3 justify-end italic font-serif text-2xl text-white"> 
-                <span>HOME</span>
-                <TiArrowBackOutline className="size-7 text-blue-500" />
-                </Link>
-            </div>
 
-            <div className="md:min-w-4xl mx-auto  bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
+                <div >
 
-                <div className="px-4 py-2 ">
-                    <h1 className="text-gray-800 font-bold text-2xl uppercase ">To-Do List </h1>
+                    <Link href="/" className="flex gap-3 justify-end italic font-serif text-2xl text-white">
+                        <span>RETOUR À LA PAGE D'ACCUEIL</span>
+                        <TiArrowBackOutline className="size-7 text-blue-500" />
+                    </Link>
                 </div>
-                <form className="w-full md:min-w-3xl mx-auto px-4 py-2 ">
-                    <div className="flex items-center border-b-2 border-teal-500 py-2">
-                        <input
-                            className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                            type="text" placeholder="Ajouter une tache" />
-                        <Link
-                            href="/createTask"
-                            className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
-                            type="button">
-                            Ajouter
-                        </Link>
+
+                <div className="md:min-w-4xl mx-auto  bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
+
+                    <div className="px-4 py-2 ">
+                        <h1 className="text-gray-800 font-bold text-2xl uppercase ">To-Do List </h1>
                     </div>
-                </form>
-                <ul className="divide-y divide-gray-200 px-4    grid gap-2 p-5">
-                    {todos.map((todo) => (
-                        <li key={todo.id} className="py-4 border gap-1 p-3 rounded">
-                            <div className="flex items-center">
-                                <input checked={todo.completed} id={`todo-${todo.id}`} name={`todo-${todo.id}`} type="checkbox" onChange={() => handleToggleTodo(todo.id)}
-                                    className="h-4 w-4 text-teal-600 focus:ring-teal-500 border-gray-300 rounded" />
-                                <label htmlFor="todo1" className="ml-3 flex justify-between text-gray-900  w-full">
-                                    <div className={todo.completed ? "text-gray-400 line-through" : "text-lg font-medium mx-7 "}>{todo.title}</div>
-                                    <div className="flex gap-2">
-                                        <Link href={`/updateTask/${todo.id}`}  >
-                                            <button className="text-sm font-light text-violet-800 border-1 cursor-pointer hover:text-white hover:bg-violet-950 rounded px-2"><CiEdit className="size-7" /></button>
-                                        </Link>
-                                        <Link href={`/deleteTask/${todo.id}`} >
-                                            <button className="text-sm font-light text-red-700  cursor-pointer hover:text-red-500 rounded px-1 "><FaRegTrashCan className="size-7" /></button>
-                                        </Link>
-                                    </div>
-                                </label>
-                            </div>
-                        </li>
-                    ))
-                    }
-                </ul>
+                    <form className="w-full md:min-w-3xl mx-auto px-4 py-2 ">
+                        <div className="flex items-center border-b-2 border-teal-500 py-2">
+                            <input
+                                disabled
+                                className="appearance-none bg-transparent border-none w-full dark:bg-white text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                                type="text" placeholder="Ajouter une tache" />
+                            <Link
+                                href="/createTask"
+                                className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+                                type="button">
+                                Ajouter
+                            </Link>
+                        </div>
+                    </form>
+                    <div className="text-gray-900 ">
+                        <div className="px-3 py-4 flex justify-center">
+                            <table className="w-full text-md bg-white shadow-md rounded mb-4 ">
+                                <tbody>
+                                    <tr className="border-b">
+                                        {/* <th className="text-left p-3 px-5">ID</th> */}
+                                        <th className="text-left p-3 px-5">TACHES</th>
+                                        <th className="text-left p-3 px-5">STATUS</th>
+                                        <th className="text-center p-3 px-5"> ACTIONS </th>
+                                    </tr>
+                                    {todos.map((todo, index) => (
+                                        <tr key={index} className="border-b hover:bg-orange-100 bg-gray-100">
+                                            {/* <td className="p-3 px-5">
+                                                <p className={todo.completed ? "text-gray-700 line-through font-semibold " : "bg-transparent border-b-2 border-gray-300 py-2"}>{todo.id}</p>
+                                            </td> */}
+                                            <td className="p-3 px-5">
+                                                <p className={todo.completed ? "text-gray-700 line-through font-semibold " : "bg-transparent border-b-2 border-gray-300 py-2"}>{todo.title}</p>
+                                            </td>
+                                            <td className="p-3 px-5">
+                                                {todo.completed ? (<p className="bg-green-300 w-15 text-green-900 rounded">Terminé</p>) : (<p className="bg-orange-300 w-22 text-center rounded">En cours ...</p>)}
+
+
+                                            </td>
+                                            <td className="p-3  flex justify-center">
+                                                <div className="flex gap-3 ">
+                                                    <Link href={`/updateTask/${todo.id}`}  >
+                                                        <button className="text-sm font-light text-violet-800 border-1 cursor-pointer hover:text-white hover:bg-violet-950 rounded px-2"><CiEdit className="size-7" /></button>
+                                                    </Link>
+                                                    <Link href={`/deleteTask/${todo.id}`} >
+                                                        <button className="text-sm font-light text-red-700  cursor-pointer hover:text-red-500 rounded px-1 "><FaRegTrashCan className="size-7" /></button>
+                                                    </Link>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-             </div>
         </>
     )
 }

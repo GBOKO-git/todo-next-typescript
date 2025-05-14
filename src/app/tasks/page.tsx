@@ -42,7 +42,7 @@ const Task = () => {
                 <div className="md:min-w-4xl mx-auto  bg-slate-300 shadow-lg rounded-lg overflow-hidden  p-7">
 
                     <div className="px-4 py-2 ">
-                        <h1 className="text-gray-800 font-bold text-2xl uppercase ">To-Do List </h1>
+                        <h1 className="text-gray-800 font-bold text-2xl uppercase font-serif">Ma liste des tâches </h1>
                     </div>
                     <form className="w-full md:min-w-3xl mx-auto px-4 py-2 ">
                         <div className="flex items-center border-b-2 border-teal-500 py-2">
@@ -69,15 +69,13 @@ const Task = () => {
                                         <th className="text-center p-3 px-5"> ACTIONS </th>
                                     </tr>
                                     {todos.map((todo, index) => (
-                                        <tr key={index} className="border-b hover:bg-orange-100 bg-gray-100">
-                                            {/* <td className="p-3 px-5">
-                                                <p className={todo.completed ? "text-gray-700 line-through font-semibold " : "bg-transparent border-b-2 border-gray-300 py-2"}>{todo.id}</p>
-                                            </td> */}
+                                        <tr key={index} className={todo.completed ? "border-b hover:bg-green-300 bg-gray-100" : "border-b hover:bg-gray-300 bg-gray-100"}>
+                                           
                                             <td className="p-3 px-5">
                                                 <p className={todo.completed ? "text-gray-700 line-through font-semibold " : "bg-transparent border-b-2 border-gray-300 py-2"}>{todo.title}</p>
                                             </td>
                                             <td className="p-3 px-5">
-                                                {todo.completed ? (<p className="bg-green-300 w-15 text-green-900 rounded">Terminé</p>) : (<p className="bg-orange-300 w-22 text-center rounded">En cours ...</p>)}
+                                                {todo.completed ? (<p className=" w-15 text-green-900 rounded">Terminé</p>) : (<p className="bg-orange-300 w-22 text-center rounded">En cours ...</p>)}
 
 
                                             </td>
@@ -87,7 +85,7 @@ const Task = () => {
                                                         <button className="text-sm font-light text-violet-800 border-1 cursor-pointer hover:text-white hover:bg-violet-950 rounded px-2"><CiEdit className="size-7" /></button>
                                                     </Link>
                                                     <Link href={`/deleteTask/${todo.id}`} >
-                                                        <button className="text-sm font-light text-red-700  cursor-pointer hover:text-red-500 rounded px-1 "><FaRegTrashCan className="size-7" /></button>
+                                                        <button className="text-sm font-light text-red-700  cursor-pointer hover:text-red-500 rounded px-1"><FaRegTrashCan className="size-7" /></button>
                                                     </Link>
                                                 </div>
                                             </td>

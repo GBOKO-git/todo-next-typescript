@@ -23,7 +23,7 @@ const DeleteTask = () => {
   const handleDeleteTodo = async (todoId: number) => {
     try {
       await deleteTodo(todoId);
-      router.push("/task"); // Redirection après suppression
+      router.push("/tasks"); // Redirection après suppression
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
     }

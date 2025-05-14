@@ -14,7 +14,7 @@ const CreateTask = () => {
     e.preventDefault();
     if (title.trim() !== "") {
       addTodo(title);
-      router.push("/task")
+      router.push("/tasks")
     }
   }
   return (
@@ -41,7 +41,7 @@ const CreateTask = () => {
         </form>
         <div className="flex gap-3 justify-end italic font-serif">
           <span>Retourner à la liste des taches</span>
-          <Link href="/task" > <TiArrowBackOutline className="size-7 text-blue-500" />
+          <Link href="/tasks" > <TiArrowBackOutline className="size-7 text-blue-500" />
           </Link>
         </div>
       </main>

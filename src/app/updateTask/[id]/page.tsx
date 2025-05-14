@@ -38,7 +38,7 @@ const UpdateTask = () => {
         {
             updateTaskById(todo.id, title, completed)
             // alert(`Lache ${todo?.title} a été modifiée avec success`)
-            router.push('/task')
+            router.push('/tasks')
         }
     }
 
@@ -85,7 +85,7 @@ const UpdateTask = () => {
 
                     <div className="flex gap-3 justify-end italic font-serif items-center rounded dark:text-white dark:bg-black">
                         <span>Retourner à la liste des taches</span>
-                        <Link href="/task" > <TiArrowBackOutline className="size-7 text-blue-500" />
+                        <Link href="/tasks" > <TiArrowBackOutline className="size-7 text-blue-500" />
                         </Link>
                     </div>
                 </main>

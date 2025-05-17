@@ -7,92 +7,84 @@ import { useEffect, useState } from 'react'
 import { TiArrowBackOutline } from 'react-icons/ti'
 
 const UpdateTask = () => {
-    const router = useRouter()
-    const { id } = useParams()
-    const [todo, setTodo] = useState<ITodo | null>(null)
-    const [title, setTitle] = useState('')
-    const [completed, setCompleted] = useState(false)
+  const router = useRouter()
+  const { id } = useParams()
+  const [todo, setTodo] = useState<ITodo | null>(null)
+  const [title, setTitle] = useState('')
+  const [completed, setCompleted] = useState(false)
 
-
-
-    useEffect(() => {
-        if (id) {
-            const updateTask = getTodoById(Number(id));
-            if (updateTask) {
-                setTodo(updateTask);
-                setTitle(updateTask.title)
-            }
-        }
-    }, [id])
-
-
-    const handleUpdateTask = (e: React.FormEvent) => {
-        e.preventDefault();
-        
-        if (!todo){
-            return;
-        } else if (!title || title.trim()=== "") {
-            alert('Le titre es obligatoire')
-            return;
-        } else
-        {
-            updateTaskById(todo.id, title, completed)
-            // alert(`Lache ${todo?.title} a été modifiée avec success`)
-            router.push('/tasks')
-        }
+  useEffect(() => {
+    if (id) {
+      const taskToUpdate = getTodoById(Number(id))
+      if (taskToUpdate) {
+        setTodo(taskToUpdate)
+        setTitle(taskToUpdate.title)
+        setCompleted(taskToUpdate.completed)
+      }
     }
+  }, [id])
 
-    return (
-        <>
+  const handleUpdateTask = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!todo) return
+    if (!title.trim()) {
+      alert('Le titre est obligatoire')
+      return
+    }
+    updateTaskById(todo.id, title, completed)
+    router.push('/tasks')
+  }
 
-            <div className="min-h-screen justify-center items-center flex bg-gray-300 px-2">
-                <main className=" md:w-xl md:h-80 h-100 grid mx-auto  bg-gray-100 p-5 rounded dark:bg-black dark:text-white">
-                    <h1 className="text-2xl font-bold mb-4 text-center ">MODIFIER LA TACHE <br /> </h1>
+  return (
+    <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
+      <main className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 space-y-6 dark:bg-black dark:text-white">
+        
+        {/* Header */}
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 uppercase font-serif">
+            Modifier la tâche
+          </h1>
+          <Link href="/tasks" className="cursor-pointer border p-1 bg-gray-300/80 rounded flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm md:text-base">
+            <TiArrowBackOutline className="text-xl" />
+            <span className="uppercase">Tâches</span>
+          </Link>
+        </div>
 
+        {/* Form */}
+        <form onSubmit={handleUpdateTask} className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center">
+          <div className="md:col-span-4">
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Titre de la tâche"
+              className="w-full h-12 px-4 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
 
-                    <form onSubmit={handleUpdateTask} className="grid md:grid-cols-6  gap-2 mb-4 w-full dark:text-black  items-center px-2 ">
-                        <div className='col-span-3'>
-                            <input
-                                type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                placeholder="Modification de tâche "
-                                className='bg-white h-12 text-center'
-                            />
-                        </div>
-                        <div className='col-span-2'>
-                            <select
+          <div className="md:col-span-1 ">
+            <select
+              value={completed ? 'done' : 'pending'}
+              onChange={(e) => setCompleted(e.target.value === 'done')}
+              className="w-full h-12 bg-gray-100 border border-gray-300 rounded px-2 focus:outline-none cursor-pointer"
+            >
+              <option value="pending">En cours</option>
+              <option value="done">Terminé</option>
+            </select>
+          </div>
 
-                                value={completed ? 'done' : 'pending'}
-                                onChange={(e) => setCompleted(e.target.value === 'done')}
-                                className="bg-transparent border-b-2 border-gray-300 py-2">
-                                <option value="pending">En cours</option>
-                                <option value="done">Terminé</option>
-                            </select>
-                        </div>
-                        <div className='col-span-1'>
-                            <button type="submit" className="bg-blue-500 text-white px-4 py-2 h-12 rounded ">
-                                Modifier
-                            </button>
-                        </div>
-
-
-
-
-
-                    </form>
-
-
-                    <div className="flex gap-3 justify-end italic font-serif items-center rounded dark:text-white dark:bg-black">
-                        <span>Retourner à la liste des taches</span>
-                        <Link href="/tasks" > <TiArrowBackOutline className="size-7 text-blue-500" />
-                        </Link>
-                    </div>
-                </main>
-            </div>
-
-        </>
-    )
+          <div className="md:col-span-1">
+            <button
+              type="submit"
+              className="w-full h-12 bg-blue-600 text-white rounded hover:bg-blue-700 transition cursor-pointer"
+            >
+              Modifier
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+  )
 }
 
-export default UpdateTask
+export default UpdateTask;

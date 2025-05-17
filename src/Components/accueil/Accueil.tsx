@@ -1,52 +1,58 @@
 "use client"
-import { getTodos } from "@/Geteways/todo";
-import { ITodo } from "@/Interfaces/todo";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { FaTasks } from "react-icons/fa";
 import { MdAddTask } from "react-icons/md";
-
+import { getTodos } from "@/Geteways/todo";
+import { ITodo } from "@/Interfaces/todo";
 
 const Accueil = () => {
-    const [todos, setTodos] = useState<ITodo[]>([])
+  const [todos, setTodos] = useState<ITodo[]>([]);
 
-    useEffect(() => {
-        setTodos(getTodos())
-    }, [])
-    return (
-        <>
-            <div className="grid  justify-center items-center  px-4 py-8  min-h-screen md:mx-15  ">
-                <div className="md:min-w-7xl">
-                    <h1 className="text-3xl text-center font-bold font-serif uppercase absolute justify-center top-28 left-1/2 -translate-x-1/2">GESTIONNAIRE DES TÂCHES</h1>
+  useEffect(() => {
+    const fetchTodos = async () => {
+      const data = await getTodos();
+      setTodos(data);
+    };
+    fetchTodos();
+  }, []);
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 justify-center items-center gap-8 px-5 ">
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-4xl">
+        <h1 className="text-4xl text-center font-bold font-serif uppercase mb-12 text-gray-800">
+          Gestionnaire des Tâches
+        </h1>
 
-                        <div
-                            className="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
-                            <Link href="/tasks" >
-                                <div className="flex gap-2 items-center justify-center">
-                                    <span className="font-bold text-4xl">{todos.length}</span>
-                                    <FaTasks className="size-15 " />
-                                </div>
-                                <span className="font-semibold font-serif uppercase opacity-70 text-2xl text-center">Mes taches</span>
-                            </Link>
-                        </div>
-
-                        <div
-                            className="flex flex-col justify-center items-center gap-2 border border-dashed border-gray-500 p-4 rounded-md h-32">
-                            <Link href="/createTask" >
-                                <div className="flex gap-2 items-center justify-center">
-
-                                    <MdAddTask className="size-15" />
-
-                                </div>
-                                <span className="font-semibold font-serif uppercase opacity-70 text-2xl text-center">Creer une Tache</span>
-                            </Link>
-                        </div>
-                    </div>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mes Tâches */}
+          <Link href="/tasks">
+            <div className="bg-white hover:bg-gray-100 border border-gray-300 p-6 rounded-xl shadow-md cursor-pointer transition">
+              <div className="flex items-center justify-center gap-4">
+                <span className="text-5xl font-bold text-blue-600">{todos.length}</span>
+                <FaTasks className="text-5xl text-gray-600" />
+              </div>
+              <p className="mt-4 text-xl text-center font-medium text-gray-700 uppercase">
+                Mes Tâches
+              </p>
             </div>
-        </>
-    )
-}
+          </Link>
+
+          {/* Créer une tâche */}
+          <Link href="/createTask">
+            <div className="bg-white hover:bg-gray-100 border border-gray-300 p-6 rounded-xl shadow-md cursor-pointer transition">
+              <div className="flex items-center justify-center gap-4">
+                <MdAddTask className="text-5xl text-green-600" />
+              </div>
+              <p className="mt-4 text-xl text-center font-medium text-gray-700 uppercase">
+                Créer une Tâche
+              </p>
+            </div>
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export default Accueil;

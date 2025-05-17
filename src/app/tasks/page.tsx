@@ -23,7 +23,7 @@ const Task = () => {
                 <div >
 
                     <Link href="/" className="flex gap-3 justify-end italic font-serif text-2xl text-white">
-                        <span>RETOUR À LA PAGE D'ACCUEIL</span>
+                        <span>RETOUR À LA PAGE D&apos;ACCUEIL</span>
                         <TiArrowBackOutline className="size-7 text-blue-500" />
                     </Link>
                 </div>

@@ -15,17 +15,6 @@ const Task = () => {
         setTodos(getTodos());
     }, []);
 
-
-    // const handleToggleTodo = (id: number) => {
-    //     toggleTodo(id);
-    //     setTodos((prevTodos) =>
-    //         prevTodos.map((todo) =>
-    //             todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    //         )
-    //     );
-    // };
-
-
     return (
         <>
             <div className="grid  pt-10 items-center justify-items-center min-h-screen bg-gray-600">

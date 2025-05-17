@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { getTodos, toggleTodo } from "@/Geteways/todo";
+import { getTodos } from "@/Geteways/todo";
 import { useEffect, useState } from "react";
 import { ITodo } from "@/Interfaces/todo";
 import { FaRegTrashCan } from "react-icons/fa6";

@@ -30,7 +30,7 @@ const DeleteTask = () => {
   if (!todo) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm px-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center md:bg-black/30 backdrop-blur-sm px-4">
       <div
         aria-hidden="true"
         className="absolute inset-0 cursor-pointer"

@@ -4,7 +4,6 @@ import { ITodo } from '@/Interfaces/todo'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { TiArrowBackOutline } from 'react-icons/ti'
 
 const UpdateTask = () => {
   const router = useRouter()
@@ -38,16 +37,18 @@ const UpdateTask = () => {
   return (
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-gray-100 to-gray-200 px-4">
       <main className="w-full max-w-2xl bg-white shadow-md rounded-lg p-6 space-y-6 dark:bg-black dark:text-white">
-        
+
         {/* Header */}
         <div className="flex justify-between items-center">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800 uppercase font-serif">
             Modifier la tâche
           </h1>
-          <Link href="/tasks" className="cursor-pointer border p-1 bg-gray-300/80 rounded flex items-center gap-2 text-blue-600 hover:text-blue-800 font-semibold text-sm md:text-base">
-            <TiArrowBackOutline className="text-xl" />
-            <span className="uppercase">Tâches</span>
+          <Link href="/tasks" className="flex gap-2 items-center text-blue-600 hover:text-blue-800 font-semibold cursor-pointer">
+            <button className=" border p-2 rounded font-serif bg-gray-300/60 cursor-pointer">
+              TACHES
+            </button>
           </Link>
+          
         </div>
 
         {/* Form */}

@@ -59,7 +59,7 @@ const UpdateTask = () => {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Titre de la tâche"
-              className="w-full h-12 px-4 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full h-12 px-4 rounded bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 text-black"
             />
           </div>
 
@@ -67,7 +67,7 @@ const UpdateTask = () => {
             <select
               value={completed ? 'done' : 'pending'}
               onChange={(e) => setCompleted(e.target.value === 'done')}
-              className="w-full h-12 bg-gray-100 border border-gray-300 rounded px-2 focus:outline-none cursor-pointer"
+              className="w-full h-12 bg-gray-100 border border-gray-300 rounded px-2 focus:outline-none cursor-pointer text-black"
             >
               <option value="pending">En cours</option>
               <option value="done">Terminé</option>

@@ -40,10 +40,10 @@ const UpdateTask = () => {
 
         {/* Header */}
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 uppercase font-serif">
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800 uppercase font-serif dark:text-white">
             Modifier la tâche
           </h1>
-          <Link href="/tasks" className="flex gap-2 items-center text-blue-600 hover:text-blue-800 font-semibold cursor-pointer">
+          <Link href="/tasks" className="flex gap-2 items-center text-blue-600 hover:text-blue-800 font-semibold cursor-pointer sm:text-yellow-600">
             <button className=" border p-2 rounded font-serif bg-gray-300/60 cursor-pointer">
               TACHES
             </button>
